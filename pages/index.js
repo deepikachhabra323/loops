@@ -26,7 +26,7 @@ export default function Home() {
 
   const updateData=(selectedFilters,type='add')=>{
     let currentD = type=='add'?data:defaultData // use previous data is any sub filter applied, otherwise use default data
-    setLoader(true)
+    // setLoader(true)
     if(Object.keys(selectedFilters).length==0){ // need entire csv data in table if no filter
       setData(defaultData);
       let columnsFormat ={}
@@ -34,7 +34,7 @@ export default function Home() {
         columnsFormat[col.name] = col.filters
       })
       setColumnsFormatted(columnsFormat)
-      // setLoader(false)
+      setLoader(false)
     }
     
     else{
@@ -126,6 +126,7 @@ export default function Home() {
       displayValue="key"
       placeholder={col.name}
       onRemove={function noRefCheck(selected){
+        setLoader(true)
         let appliedD = {...selectedFilters,[col.name]:selected.map(ele=>ele.cat)};
         if(selected.length==0)
         delete appliedD[col.name]
@@ -171,7 +172,7 @@ export default function Home() {
           <button className='margin-1rem btn-custom' onClick={()=>{
             setLoader(true)
             updateData({});setFilters({});
-            itemsRef.current.forEach(item=>item.resetSelectedValues())
+            itemsRef.current.forEach(item=>item?.resetSelectedValues())
             }}>Reset Filter</button>
         </div>
         <div className='data-table-parent'>
