@@ -119,6 +119,9 @@ a {
   position: relative;
   overflow: hidden;
 }
+.btn-custom{
+  padding: .5rem;
+}
 /* .placeholder-item::before {
   content: '';
   display: block;

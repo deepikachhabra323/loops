@@ -118,6 +118,7 @@ export default function Home() {
   const filters = () => { // for rendering filters
     return columns.map((col,i)=>{
     return <div 
+    key={`filter-${col.name}`}
     className='margin-1rem'
     >
       <Multiselect
@@ -158,7 +159,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div style={{color:'white'}}>{JSON.stringify(loader)}</div>
         <div style={{color:'white'}}>
           <span>Switch Data Set Type </span>
           <input type='radio' id="small" checked={csvType=='small'?true:false} onChange={()=>{setCsvType('small');setLoader(true)}} value="small"/>
@@ -168,7 +168,7 @@ export default function Home() {
         </div>
         <div style={{display:'flex',flexWrap:'wrap'}}>
           {data.length?filters():null}
-          <button className='margin-1rem' onClick={()=>{
+          <button className='margin-1rem btn-custom' onClick={()=>{
             setLoader(true)
             updateData({});setFilters({});
             itemsRef.current.forEach(item=>item.resetSelectedValues())
