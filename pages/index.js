@@ -161,7 +161,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div style={{color:'white'}}>
-          <span>Switch Data Set Type </span>
+          <span>Switch Data Set Type &nbsp;&nbsp; </span>
           <input type='radio' id="small" checked={csvType=='small'?true:false} onChange={()=>{setCsvType('small');setLoader(true)}} value="small"/>
           <label className='margin-1rem' for="small">Small</label>
           <input type='radio' id="large" checked={csvType=='large'?true:false} onChange={()=>{setCsvType('large');setLoader(true)}} value="large"/>

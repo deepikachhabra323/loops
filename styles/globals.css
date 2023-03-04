@@ -111,6 +111,7 @@ a {
 .data-table-parent{
   background-color: white;
   width: 100%;
+  min-height: 500px;
 }
 .placeholder-item {
   box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
@@ -120,7 +121,19 @@ a {
   overflow: hidden;
 }
 .btn-custom{
-  padding: .5rem;
+  background-color: #0096fb; /* Green */
+  border: none;
+  color: white;
+  /* padding: 15px 32px; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: .5rem 1rem;
+}
+.chip{
+  padding: 0px 10px !important;
+  margin-bottom: 0 !important;
 }
 /* .placeholder-item::before {
   content: '';
